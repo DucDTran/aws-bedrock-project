@@ -29,7 +29,7 @@ resource "aws_rds_cluster_instance" "aurora_instance" {
 }
 
 resource "aws_db_subnet_group" "aurora" {
-  name       = "${var.cluster_identifier}-subnet-group"
+  name       = "${var.cluster_identifier}-subnet-group-${substr(md5(var.vpc_id), 0, 8)}"
   subnet_ids = var.subnet_ids
 
   tags = {

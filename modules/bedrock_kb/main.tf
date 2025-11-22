@@ -142,6 +142,7 @@ resource "aws_bedrockagent_data_source" "s3_bedrock_bucket" {
     type = "S3"
     s3_configuration {
       bucket_arn = var.s3_bucket_arn
+      inclusion_prefixes = ["spec-sheets/"]
     }
   }
   depends_on = [ aws_bedrockagent_knowledge_base.main ]
